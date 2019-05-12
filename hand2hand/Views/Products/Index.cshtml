@@ -1,0 +1,21 @@
+﻿@using hand2hand.Models
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+
+@foreach (Product product in Model)
+{
+    <div>
+        <h3>@product.Name</h3>
+        <h4>@product.Price.ToString("# uah")</h4>
+        <p>@product.Category</p>
+        <p>@product.Description</p>
+    </div>
+}
+
+
