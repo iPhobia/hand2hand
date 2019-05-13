@@ -1,0 +1,24 @@
+﻿@model hand2hand.Models.Product
+
+<div class="well">
+
+    <div class="row">
+        <div class="col-xs-10">
+            <h3>
+                <strong>@Model.Name</strong>
+            </h3>
+            <h4>
+                <strong>@Model.Price.ToString("# uah")</strong>
+            </h4>
+        </div>
+
+        <div class="col-xs-2">
+            <h2>
+                <strong class="pull-right label label-primary">@Model.Category</strong>
+            </h2>
+        </div>
+    </div>
+    <span class="lead">
+        @Model.Description
+    </span>
+</div>

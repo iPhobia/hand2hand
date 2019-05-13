@@ -3,23 +3,16 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = null;
+    Layout = "/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Products</h2>
 
 @foreach (var product in Model.Products)
 {
-    <div>
-        <img src="@product.Url" height="250" width="200" />
-        <h3>@product.Name</h3>
-        <h4>@product.Price.ToString("# uah")</h4>
-        <p>@product.Category</p>
-        <p>@product.Description</p>
-    </div>
-    <hr />
+    @Html.Partial("_ProductsViewPartial", product)
 }
-
+<div class="btn-group pull-right">
 @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x }));
-
+</div>
 
