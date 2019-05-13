@@ -13,11 +13,12 @@ namespace hand2hand.Controllers
         private int pageSize = 3; 
 
         // GET: Products
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(string category, int page = 1)
         {
             ProductsListVIewModel model = new ProductsListVIewModel
             {
                 Products = db.Products
+                .Where(b => category == null || b.Category == category)
                 .OrderBy(product => product.Id)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize),
@@ -27,7 +28,9 @@ namespace hand2hand.Controllers
                     CurrentPage = page,
                     TotalItems = db.Products.Count(),
                     ItemsPerPage = pageSize
-                }
+                },
+
+                CurrentCategory = category
             };
 
             return View(model);

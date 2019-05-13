@@ -13,11 +13,31 @@ namespace hand2hand
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //page 1 of all products
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                null,
+                "",
+                new { controller = "Products", action = "Index", page = 1, category = (string)null }
+                );
+
+            //outputs specific page of all products 
+            routes.MapRoute(
+                name: null,
+                url: "Page{page}",
+                defaults: new { controller = "Products", action = "Index", category = (string)null }, 
+                constraints: new { page = @"\d+" }
+                );
+
+            routes.MapRoute(
+                null,
+                "{category}",
+                new { controller = "Products", action = "Index", page = 1 }
+                );
+
+            routes.MapRoute(
+                null,
+                "{controller}/{action}"
+                );
         }
     }
 }
