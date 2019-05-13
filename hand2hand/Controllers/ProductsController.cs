@@ -9,12 +9,28 @@ namespace hand2hand.Controllers
 {
     public class ProductsController : Controller
     {
-        ProductContext db = new ProductContext();
+        private ProductContext db = new ProductContext();
+        private int pageSize = 3; 
 
         // GET: Products
-        public ActionResult Index()
-        { 
-            return View(db.Products);
+        public ActionResult Index(int page = 1)
+        {
+            ProductsListVIewModel model = new ProductsListVIewModel
+            {
+                Products = db.Products
+                .OrderBy(product => product.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize),
+
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    TotalItems = db.Products.Count(),
+                    ItemsPerPage = pageSize
+                }
+            };
+
+            return View(model);
         }
     }
 }

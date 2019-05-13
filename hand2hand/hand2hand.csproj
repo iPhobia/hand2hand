@@ -131,9 +131,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\PagingHelper.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductContext.cs" />
     <Compile Include="Models\ProductsDbInitializer.cs" />
+    <Compile Include="Models\ProductsListVIewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,9 +148,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Img\book.jfif" />
+    <Content Include="Img\book.jpg" />
+    <Content Include="Img\glasses.jpg" />
+    <Content Include="Img\notebook.jpg" />
     <Content Include="Img\phone.jpg" />
     <Content Include="Img\trous.jpg" />
+    <Content Include="Img\tshirt.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
