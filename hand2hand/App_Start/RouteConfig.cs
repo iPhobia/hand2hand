@@ -14,13 +14,13 @@ namespace hand2hand
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             //page 1 of all products
-            routes.MapRoute(
-                null,
-                "",
-                new { controller = "Products", action = "Index", page = 1, category = (string)null }
-                );
+            //routes.MapRoute(
+            //    null,
+            //    "",
+            //    new { controller = "Products", action = "Index", page = 1, category = (string)null }
+            //    );
 
-            //outputs specific page of all products 
+            //outputs specific page of all products
             routes.MapRoute(
                 name: null,
                 url: "Page{page}",
@@ -28,6 +28,7 @@ namespace hand2hand
                 constraints: new { page = @"\d+" }
                 );
 
+            //page 1 of specific product's category
             routes.MapRoute(
                 null,
                 "{category}",
@@ -36,8 +37,8 @@ namespace hand2hand
 
             routes.MapRoute(
                 null,
-                "{controller}/{action}"
-                );
+                "{controller}/{action}",
+                new { controller = "Home", action = "Index"});
         }
     }
 }

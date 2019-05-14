@@ -26,7 +26,9 @@ namespace hand2hand.Controllers
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
-                    TotalItems = db.Products.Count(),
+                    TotalItems = category == null ?
+                                   db.Products.Count() :
+                                   db.Products.Where(product => product.Category == category).Count(),
                     ItemsPerPage = pageSize
                 },
 
