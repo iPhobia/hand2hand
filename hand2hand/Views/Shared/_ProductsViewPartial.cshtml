@@ -11,11 +11,19 @@
                 <strong>@Model.Price.ToString("# uah")</strong>
             </h4>
         </div>
-
+ 
         <div class="col-xs-2">
             <h2>
-                <strong class="pull-right label label-primary">@Model.Category</strong>
+                <strong id ="category" class="pull-right label label-primary">@Model.Category</strong>
             </h2>
+            @using(Html.BeginForm("AddToCart", "Cart"))
+            {
+                <div class="pull-right">
+                    @Html.HiddenFor(p => p.Id)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn-success" value="Add to Cart"/>
+                </div>
+            }
         </div>
     </div>
     <span class="lead">

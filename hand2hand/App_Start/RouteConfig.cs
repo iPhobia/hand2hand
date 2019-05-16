@@ -13,12 +13,12 @@ namespace hand2hand
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //page 1 of all products
-            //routes.MapRoute(
-            //    null,
-            //    "",
-            //    new { controller = "Products", action = "Index", page = 1, category = (string)null }
-            //    );
+           // page 1 of all products
+            routes.MapRoute(
+                null,
+                "",
+                new { controller = "Products", action = "Index", page = 1, category = (string)null }
+                );
 
             //outputs specific page of all products
             routes.MapRoute(
@@ -37,8 +37,7 @@ namespace hand2hand
 
             routes.MapRoute(
                 null,
-                "{controller}/{action}",
-                new { controller = "Home", action = "Index"});
+                "{controller}/{action}");
         }
     }
 }

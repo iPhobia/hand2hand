@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -133,6 +134,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductContext.cs" />
@@ -192,6 +195,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\_ProductsViewPartial.cshtml" />
     <Content Include="Views\Nav\Menu.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
