@@ -11,53 +11,46 @@ namespace hand2hand.Controllers
     {
         private ProductContext db = new ProductContext();
 
-        public ViewResult Index(string returnUrl)
+        public ViewResult Index(Cart cart, string returnUrl)
         {
             return View(new CartViewModel
             {
-                Cart = GetCart(),
+                Cart = cart,
                 ReturnUrl = returnUrl
             });
         }
 
-        //???
-        public Cart GetCart()
-        {
-            Cart cart = (Cart)Session["Cart"];
-            if (cart == null)
-            {
-                cart = new Cart();
-                Session["Cart"] = cart;
-            }
-
-            return cart;
-        }
-
         //
-        public RedirectToRouteResult AddToCart(int Id, string returnUrl)
+        public RedirectToRouteResult AddToCart(Cart cart, int Id, string returnUrl)
         {
             Product product = db.Products
                 .FirstOrDefault(p => p.Id == Id );
 
             if(product != null)
             {
-                GetCart().AddLine(product, 1);
+                cart.AddLine(product, 1);
             }
 
             return RedirectToAction(actionName: "Index", controllerName: "Cart", routeValues: new { returnUrl });
         }
-
-        public RedirectToRouteResult RemoveFromCart(int Id, string returnUrl)
+         
+        public RedirectToRouteResult RemoveFromCart(Cart cart, int Id, string returnUrl)
         {
             Product product = db.Products
                 .FirstOrDefault(p => p.Id == Id);
 
             if (product != null)
             {
-                GetCart().RemoveLine(product);
+                cart.RemoveLine(product);
             }
 
             return RedirectToAction("Index", new { returnUrl });
+        }
+
+        //checkout
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
         }
     }
 }
