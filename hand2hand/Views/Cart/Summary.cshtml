@@ -1,0 +1,12 @@
+﻿@model hand2hand.Models.Cart
+<div class="navbar-right">
+    @Html.ActionLink("Make an order", "Index", "Cart",
+            new { returnUrl = Request.Url.PathAndQuery},
+            new { @class = "btn btn-default navbar-btn"})
+</div>
+
+<div class="navbar-text navbar-right">
+    <b>Your cart</b>
+    @Model.Lines.Sum(x => x.Quantity ) products,
+    @Model.ComputeValue().ToString("# uah")
+</div>

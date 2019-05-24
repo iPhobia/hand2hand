@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartModelBinder.cs" />
     <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\Product.cs" />
@@ -196,6 +197,7 @@
     <Content Include="Views\Shared\_ProductsViewPartial.cshtml" />
     <Content Include="Views\Nav\Menu.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Summary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,6 +5,7 @@ using System.Web;
 
 namespace hand2hand.Models
 {
+    //represents set of products added to cart
     public class Cart
     {
         private List<CartLine> lineCollection = new List<CartLine>();
