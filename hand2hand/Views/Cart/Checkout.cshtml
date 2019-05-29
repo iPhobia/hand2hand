@@ -1,0 +1,48 @@
+﻿@model hand2hand.Models.ShippingDetails
+
+@{
+    ViewBag.Title = "Checkout form";
+}
+
+
+<h2>Checkout</h2>
+<p> Please, provide shipping details</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary();
+
+    <h3>Information</h3>
+    <div class="form-group">
+        <label>Your name</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control"})
+    </div>
+
+    <h3>Shipping Address</h3>
+
+    //to avoid dublication of similar markup
+    foreach(var property in ViewData.ModelMetadata.Properties)
+    {
+        if(property.PropertyName != "Name" && property.PropertyName != "IsGift")
+        {
+            <div class="form-group">
+                <label>
+                    @(property.DisplayName ?? property.PropertyName)
+                </label>
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control"})
+            </div>
+        }
+    }
+
+    <h3>Options</h3>
+    <div class="form-group">
+        <label>
+            @Html.EditorFor(x => x.IsGift)
+            Do you want a gift wrap?
+        </label>
+    </div>
+
+    <div>
+        <input class="btn btn-primary" value="Order" type="submit"/>
+    </div>
+}

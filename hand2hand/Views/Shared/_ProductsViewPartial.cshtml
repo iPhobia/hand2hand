@@ -8,13 +8,13 @@
                 <strong>@Model.Name</strong>
             </h3>
             <h4>
-                <strong>@Model.Price.ToString("# uah")</strong>
+                <strong>@Model.Category</strong>
             </h4>
         </div>
  
         <div class="col-xs-2">
             <h2>
-                <strong id ="category" class="pull-right label label-primary">@Model.Category</strong>
+                <strong id ="category" class="pull-right label label-primary">@Model.Price.ToString("# uah")</strong>
             </h2>
             @using(Html.BeginForm("AddToCart", "Cart"))
             {

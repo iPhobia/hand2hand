@@ -47,10 +47,36 @@ namespace hand2hand.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        //checkout
+      
         public PartialViewResult Summary(Cart cart)
         {
             return PartialView(cart);
+        }
+
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
+
+
+        //Invokes after submiting checkout form
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDeatails)
+        {
+            if(cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("", "Sorry the cart is empty");
+            }
+
+            if(ModelState.IsValid)
+            {
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(new ShippingDetails());
+            }   
         }
     }
 }

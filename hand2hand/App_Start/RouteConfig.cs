@@ -17,16 +17,16 @@ namespace hand2hand
             routes.MapRoute(
                 null,
                 "",
-                new { controller = "Products", action = "Index", page = 1, category = (string)null }
+                new { controller = "Products", action = "Index", category = (string)null }
                 );
 
             //outputs specific page of all products
-            routes.MapRoute(
-                name: null,
-                url: "Page{page}",
-                defaults: new { controller = "Products", action = "Index", category = (string)null }, 
-                constraints: new { page = @"\d+" }
-                );
+            //routes.MapRoute(
+            //    name: null,
+            //    url: "Page{page}",
+            //    defaults: new { controller = "Products", action = "Index", category = (string)null }, 
+            //    constraints: new { page = @"\d+" } //1-9, 1 or more repeats 
+            //    );
 
             //page 1 of specific product's category
             routes.MapRoute(

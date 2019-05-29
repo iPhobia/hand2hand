@@ -12,7 +12,8 @@ namespace hand2hand.Controllers
         private ProductContext db = new ProductContext();
         private int pageSize = 3; 
 
-        // GET: Products
+        // GET: Products/Index
+        // or GET: ""
         public ActionResult Index(string category, int page = 1)
         {
             ProductsListVIewModel model = new ProductsListVIewModel
