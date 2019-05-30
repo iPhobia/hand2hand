@@ -44,7 +44,7 @@ namespace hand2hand.Models
         }
     }
 
-    //represents item in Cart
+    //represents item in Cart and it's quantity
     public class CartLine
     {
         public Product Product { get; set; }
